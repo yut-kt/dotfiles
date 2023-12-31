@@ -5,37 +5,17 @@ export ZSH=$HOME/.my-zsh
 ZSH_THEME="robbyrussell"
 source $ZSH/my-zsh.sh
 
-# Go
-if [ -e $HOME/.goenv ];then
-  export GOPATH=$HOME/go
-  PATH=$PATH:$GOPATH/bin
-  export GOENV_ROOT=$HOME/.goenv
-  export PATH=$PATH:$GOENV_ROOT/bin
-  eval "$(goenv init -)"
+# brew
+if [ -e /opt/homebrew ]; then
+  export PATH=$PATH:/opt/homebrew/bin
 fi
 
-#java
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+# GPG
+export GPG_TTY=$(tty)
 
-# Ruby
-if [ -e $HOME/.rbenv ];then
-  export PATH=$PATH:$HOME/.rbenv/bin
-  eval "$(rbenv init -)"
-fi
-
-# Python
-if [ -e $HOME/.pyenv ];then
-  export PYENV_ROOT=$HOME/.pyenv
-  PATH=$PATH:$PYENV_ROOT/bin
-  if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init -)"
-  fi
-fi
-
-# MeCab
-if [ -e $HOME/Dev/install ];then
-  export PATH=$PATH:$HOME/Dev/install/bin
-fi
+# Anyenv
+export PATH="$PATH:$HOME/.anyenv/bin"
+eval "$(anyenv init -)"
 
 autoload -Uz colors
 colors
