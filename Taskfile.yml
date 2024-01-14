@@ -4,3 +4,4 @@ tasks:
   deploy:
     cmds:
       - find . -depth 1 -name '.*' | grep -v -f .gitignore | grep -v .gitignore | grep -v .git | xargs basename | xargs -I{} ln -sfn "$(pwd)/{}" ~/
+      - ln -sfn "$(pwd)/Taskfile.yaml" ~/Taskfile.yml

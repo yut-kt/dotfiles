@@ -1,0 +1,11 @@
+version: '3'
+
+tasks:
+  g-reset-add:
+    dir: '{{.USER_WORKING_DIR}}'
+    cmds:
+      - git reset HEAD
+  g-reset-commit:
+    dir: '{{.USER_WORKING_DIR}}'
+    cmds:
+      - git reset --soft HEAD^
